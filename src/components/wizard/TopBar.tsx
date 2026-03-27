@@ -37,8 +37,8 @@ export function TopBar() {
   }, []);
 
   return (
-    <div className="glass-sm py-2.5 px-4 flex items-center justify-between text-xs md:text-sm font-medium print:hidden relative z-50">
-      <img src="/logo-p14.jpg" alt="P14" className="h-7" />
+    <div className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl py-2.5 px-4 flex items-center justify-between text-xs md:text-sm font-medium print:hidden rounded-b-2xl">
+      <img src="/logo-p14-fc.jpg" alt="P14 Formation Continue" className="h-8 rounded" />
 
       <div className="flex items-center gap-2 text-center">
         <span className="text-foreground">Salon des Bâtisseurs 2026</span>

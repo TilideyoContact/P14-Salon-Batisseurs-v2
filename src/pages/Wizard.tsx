@@ -12,7 +12,7 @@ export default function Wizard() {
   const { step } = useWizard();
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pt-14">
       <div className="print:hidden">
         <TopBar />
         <Hero />
