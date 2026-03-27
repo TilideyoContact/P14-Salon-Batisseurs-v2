@@ -159,7 +159,10 @@ export const useWizard = create<WizardState>()(persist((set, get) => ({
     try {
       const result = await submitOrderData({ contact, cart, quote });
       set({ reference: result.reference, step: 4, isSubmitting: false });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => {
+        const main = document.querySelector('main');
+        if (main) main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
     } catch (err) {
       const message = err instanceof Error ? err.message : 'Une erreur est survenue lors de l\'envoi.';
       set({ submitError: message, isSubmitting: false });
