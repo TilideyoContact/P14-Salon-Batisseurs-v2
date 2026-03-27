@@ -166,7 +166,7 @@ export function Step4Confirmation() {
             </div>
 
             {/* Totals */}
-            <div className="p-5 bg-primary text-white print:bg-slate-800">
+            <div className="p-5 bg-[#0B1D3A] text-white rounded-b-3xl print:bg-slate-800">
               {discounts.length > 0 && (
                 <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                   <div className="flex justify-between text-sm text-white/70">
@@ -184,7 +184,7 @@ export function Step4Confirmation() {
               <div className="flex justify-between items-end">
                 <div>
                   <div className="text-white/70 text-sm uppercase tracking-wider font-semibold mb-1">Total Estime</div>
-                  <div className="text-xs text-secondary font-medium">Prix definitif sur devis officiel</div>
+                  <div className="text-xs text-white/50 font-medium">Prix definitif sur devis officiel</div>
                 </div>
                 <div className="text-right">
                   {discounts.length > 0 && (

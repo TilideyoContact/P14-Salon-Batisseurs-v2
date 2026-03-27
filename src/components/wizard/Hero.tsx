@@ -16,7 +16,7 @@ export function Hero() {
       <div className="relative z-10 py-16 md:py-20 px-4 mt-14">
         <div className="max-w-4xl mx-auto text-center">
           {/* Event badge */}
-          <div className="inline-block glass-sm text-white text-xs md:text-sm font-semibold px-4 py-1.5 mb-6">
+          <div className="inline-block bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl text-white text-xs md:text-sm font-semibold px-4 py-1.5 mb-6">
             Salon des Bâtisseurs 2026 · Fort-de-France
           </div>
 
@@ -46,7 +46,7 @@ export function Hero() {
 
           {/* Locations below */}
           <div className="flex justify-center">
-            <div className="glass-sm px-4 py-2 flex items-center gap-2 text-white/70 text-xs font-medium">
+            <div className="bg-white/10 backdrop-blur-sm border border-white/15 rounded-2xl px-4 py-2 flex items-center gap-2 text-white/70 text-xs font-medium">
               <MapPin className="w-3.5 h-3.5" />
               Martinique · Guadeloupe · Guyane
             </div>
@@ -59,7 +59,7 @@ export function Hero() {
 
 function Stat({ value, label, highlight = false }: { value: string; label: string; highlight?: boolean }) {
   return (
-    <div className={`glass-sm px-5 py-3 flex flex-col items-center min-w-[110px] ${
+    <div className={`px-5 py-3 flex flex-col items-center min-w-[110px] rounded-2xl border border-white/15 bg-white/10 backdrop-blur-sm ${
       highlight ? "border-primary/50 shadow-[0_0_15px_rgba(198,30,90,0.2)]" : ""
     }`}>
       <span className={`text-2xl font-bold font-display ${highlight ? "text-primary" : "text-white"}`}>

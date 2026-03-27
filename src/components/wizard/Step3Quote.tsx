@@ -120,7 +120,7 @@ export function Step3Quote() {
 
         {/* Totals */}
         {cartItems.length > 0 && (
-          <div className="p-6 bg-primary text-white">
+          <div className="p-6 bg-[#0B1D3A] text-white rounded-b-3xl">
             {discounts.length > 0 && (
               <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                 <div className="flex justify-between text-sm text-white/70">
@@ -128,7 +128,7 @@ export function Step3Quote() {
                   <span>{formatPrice(rawTotal)}</span>
                 </div>
                 {discounts.map((d, i) => (
-                  <div key={i} className="flex justify-between text-sm text-primary font-semibold">
+                  <div key={i} className="flex justify-between text-sm text-pink-300 font-semibold">
                     <span>{d.label}</span>
                     <span>-{formatPrice(d.amount)}</span>
                   </div>
@@ -138,7 +138,7 @@ export function Step3Quote() {
             <div className="flex justify-between items-end">
               <div>
                 <div className="text-white/70 text-sm uppercase tracking-wider font-semibold mb-1">Total Estimé</div>
-                <div className="text-xs text-secondary font-medium">Prix définitif sur devis officiel</div>
+                <div className="text-xs text-white/50 font-medium">Prix définitif sur devis officiel</div>
               </div>
               <div className="text-right">
                 {discounts.length > 0 && <div className="text-sm line-through text-white/50">{formatPrice(rawTotal)}</div>}
