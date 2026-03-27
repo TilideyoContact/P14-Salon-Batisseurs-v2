@@ -96,8 +96,37 @@ export function Step2Modules() {
         })}
       </div>
 
-      {/* Cards + inline panels */}
-      <div className="space-y-6">
+      {/* Desktop: grid rows of 3 with panel after the row. Mobile: each card + panel stacked */}
+      {/* Mobile layout (hidden on lg) */}
+      <div className="space-y-6 lg:hidden">
+        {tracks.map(track => (
+          <div key={track.id}>
+            <TrackCard
+              track={track}
+              isOpen={openTrackId === track.id}
+              onToggle={() => handleToggleTrack(track.id)}
+            />
+            <AnimatePresence mode="wait">
+              {openTrackId === track.id && (
+                <motion.div
+                  key={track.id}
+                  ref={panelRef}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden mt-4"
+                >
+                  <ModulesPanel track={track} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop layout (hidden below lg) */}
+      <div className="hidden lg:block space-y-6">
         {(() => {
           const rows: React.ReactNode[] = [];
           for (let i = 0; i < tracks.length; i += 3) {
@@ -105,7 +134,7 @@ export function Step2Modules() {
             const openInRow = rowTracks.find(t => t.id === openTrackId);
             rows.push(
               <div key={`row-${i}`}>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-3 gap-6">
                   {rowTracks.map(track => (
                     <TrackCard
                       key={track.id}
