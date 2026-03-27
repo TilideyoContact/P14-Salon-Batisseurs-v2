@@ -255,11 +255,25 @@ body::after {
     border-radius: 8px !important;
   }
 
-  /* Totals block stays dark */
-  .bg-\[\\#0B1D3A\] {
-    background: #0B1D3A !important;
-    color: white !important;
+  /* Totals block — clean light background for print */
+  .print-totals {
+    background: #f3f4f6 !important;
+    color: #1a1a1a !important;
     border-radius: 0 0 8px 8px !important;
+    border-top: 2px solid #c61e5a !important;
+  }
+
+  .print-totals * {
+    color: #1a1a1a !important;
+  }
+
+  .print-totals .text-white\/70,
+  .print-totals .text-white\/50 {
+    color: #6b7280 !important;
+  }
+
+  .print-totals .text-pink-300 {
+    color: #c61e5a !important;
   }
 
   /* Force text colors for print */

@@ -176,7 +176,7 @@ export function Step4Confirmation() {
             </div>
 
             {/* Totals */}
-            <div className="p-5 bg-[#0B1D3A] text-white rounded-b-3xl print:bg-slate-800">
+            <div className="p-5 bg-[#0B1D3A] text-white rounded-b-3xl print-totals">
               {discounts.length > 0 && (
                 <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                   <div className="flex justify-between text-sm text-white/70">

@@ -120,7 +120,7 @@ export function Step3Quote() {
 
         {/* Totals */}
         {cartItems.length > 0 && (
-          <div className="p-6 bg-[#0B1D3A] text-white rounded-b-3xl">
+          <div className="p-6 bg-[#0B1D3A] text-white rounded-b-3xl print-totals">
             {discounts.length > 0 && (
               <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                 <div className="flex justify-between text-sm text-white/70">
