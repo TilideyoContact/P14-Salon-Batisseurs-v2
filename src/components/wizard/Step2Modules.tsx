@@ -39,7 +39,7 @@ export function Step2Modules() {
     if (openTrackId && panelRef.current) {
       // Small delay to let the animation start before scrolling
       const timer = setTimeout(() => {
-        panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }, 100);
       return () => clearTimeout(timer);
     }

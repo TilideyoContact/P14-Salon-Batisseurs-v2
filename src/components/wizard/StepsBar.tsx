@@ -19,7 +19,7 @@ export function StepsBar() {
   };
 
   return (
-    <div data-steps-bar className="glass border-b-0 rounded-none sticky top-14 z-40 print:hidden">
+    <div data-steps-bar className="glass border-b-0 rounded-none sticky top-14 z-40 print:hidden scroll-mt-16">
       <div className="max-w-3xl mx-auto px-4 py-4 md:py-5 flex items-center justify-between">
         {STEPS.map((s, i) => {
           const isActive = step === s.num;
