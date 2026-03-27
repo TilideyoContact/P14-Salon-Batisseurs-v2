@@ -96,34 +96,46 @@ export function Step2Modules() {
         })}
       </div>
 
-      {/* Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {tracks.map(track => (
-          <TrackCard
-            key={track.id}
-            track={track}
-            isOpen={openTrackId === track.id}
-            onToggle={() => handleToggleTrack(track.id)}
-          />
-        ))}
+      {/* Cards + inline panels */}
+      <div className="space-y-6">
+        {(() => {
+          const rows: React.ReactNode[] = [];
+          for (let i = 0; i < tracks.length; i += 3) {
+            const rowTracks = tracks.slice(i, i + 3);
+            const openInRow = rowTracks.find(t => t.id === openTrackId);
+            rows.push(
+              <div key={`row-${i}`}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {rowTracks.map(track => (
+                    <TrackCard
+                      key={track.id}
+                      track={track}
+                      isOpen={openTrackId === track.id}
+                      onToggle={() => handleToggleTrack(track.id)}
+                    />
+                  ))}
+                </div>
+                <AnimatePresence mode="wait">
+                  {openInRow && (
+                    <motion.div
+                      key={openInRow.id}
+                      ref={panelRef}
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden mt-6"
+                    >
+                      <ModulesPanel track={openInRow} />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          }
+          return rows;
+        })()}
       </div>
-
-      {/* Full-width Modules Panel below the grid */}
-      <AnimatePresence mode="wait">
-        {openTrack && (
-          <motion.div
-            key={openTrack.id}
-            ref={panelRef}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden mt-6"
-          >
-            <ModulesPanel track={openTrack} />
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       <div className="mt-12 flex justify-start">
         <Button variant="secondary" className="glass-sm text-foreground" onClick={() => setStep(1)}>← Retour au contact</Button>
