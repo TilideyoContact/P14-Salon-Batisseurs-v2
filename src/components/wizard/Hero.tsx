@@ -37,11 +37,16 @@ export function Hero() {
             <Stat value="114,5h" label="de formation" />
           </div>
 
-          {/* Badges row: Qualiopi + France 2030 + locations */}
-          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6">
-            <img src="/badge-qualiopi.jpg" alt="Qualiopi" className="h-12 md:h-14 rounded-lg bg-white/90 p-1" />
-            <img src="/badge-france2030.jpg" alt="France 2030" className="h-12 md:h-14 rounded-lg bg-white/90 p-1" />
-            <div className="glass-sm px-3 py-2 flex items-center gap-1.5 text-white/70 text-xs font-medium">
+          {/* Badges row: 3 badges aligned */}
+          <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5 mb-4">
+            <img src="/badge-qualiopi.jpg" alt="Qualiopi" className="h-12 md:h-14 rounded-lg bg-white/90 p-1.5" />
+            <img src="/badge-france2030.jpg" alt="France 2030" className="h-12 md:h-14 rounded-lg bg-white/90 p-1.5" />
+            <img src="/badge-republique.jpg" alt="République Française" className="h-12 md:h-14 rounded-lg bg-white/90 p-1.5" />
+          </div>
+
+          {/* Locations below */}
+          <div className="flex justify-center">
+            <div className="glass-sm px-4 py-2 flex items-center gap-2 text-white/70 text-xs font-medium">
               <MapPin className="w-3.5 h-3.5" />
               Martinique · Guadeloupe · Guyane
             </div>

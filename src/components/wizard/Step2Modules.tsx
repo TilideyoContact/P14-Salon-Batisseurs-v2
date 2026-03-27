@@ -126,11 +126,11 @@ export function Step2Modules() {
       </AnimatePresence>
 
       <div className="mt-12 flex justify-start">
-        <Button variant="secondary" onClick={() => setStep(1)}>← Retour au contact</Button>
+        <Button variant="secondary" className="glass-sm text-foreground" onClick={() => setStep(1)}>← Retour au contact</Button>
       </div>
 
       {/* Sticky Footer */}
-      <div className="fixed bottom-0 left-0 right-0 glass border-t-0 rounded-none shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-50 p-4 md:p-6 print:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-[0_-10px_40px_rgba(0,0,0,0.15)] z-50 p-4 md:p-6 print:hidden">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 glass-sm text-secondary rounded-full flex items-center justify-center shrink-0">

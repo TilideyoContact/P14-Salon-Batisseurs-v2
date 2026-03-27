@@ -83,7 +83,10 @@ export const useWizard = create<WizardState>()(persist((set, get) => ({
   submitError: null,
 
   setStep: (step) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const stepsBar = document.querySelector('[data-steps-bar]');
+    if (stepsBar) {
+      stepsBar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
     set({ step });
   },
 
