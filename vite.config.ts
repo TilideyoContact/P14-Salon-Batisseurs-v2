@@ -20,6 +20,9 @@ export default defineConfig({
     port: 5173,
     host: "0.0.0.0",
     allowedHosts: true,
+    watch: {
+      ignored: ["**/.local/**"],
+    },
   },
   preview: {
     port: 4173,
