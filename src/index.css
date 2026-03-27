@@ -225,11 +225,17 @@ body::after {
     print-color-adjust: exact !important;
   }
 
-  body, html {
+  html, body, #root, #root > div, main, main > div {
     background: white !important;
+    background-color: white !important;
     color: #1a1a1a !important;
     font-size: 11pt !important;
     line-height: 1.4 !important;
+  }
+
+  .bg-background {
+    background: white !important;
+    background-color: white !important;
   }
 
   body::before,
