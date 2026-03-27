@@ -69,10 +69,10 @@ export function Step3Quote() {
                     <p className="text-sm text-muted-foreground">{track.dur}</p>
                   </div>
                   <div className="flex items-center gap-6 justify-between md:justify-end w-full md:w-auto">
-                    <div className="flex items-center bg-slate-100 rounded-lg border border-border">
-                      <button aria-label="Diminuer la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => addFullTrack(track.id, item.qty - 1)}>−</button>
+                    <div className="flex items-center glass-sm rounded-lg">
+                      <button aria-label="Diminuer la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-white/10" onClick={() => addFullTrack(track.id, item.qty - 1)}>−</button>
                       <div className="w-8 text-center font-bold text-sm">{item.qty}</div>
-                      <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => addFullTrack(track.id, item.qty + 1)}>+</button>
+                      <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-white/10" onClick={() => addFullTrack(track.id, item.qty + 1)}>+</button>
                     </div>
                     <div className="text-right w-24">
                       <div className="font-bold text-foreground text-lg">{formatPrice(Math.round(track.price * 0.95) * item.qty)}</div>
@@ -93,10 +93,10 @@ export function Step3Quote() {
                     <p className="text-sm text-muted-foreground">{mod.dur}</p>
                   </div>
                   <div className="flex items-center gap-6 justify-between md:justify-end w-full md:w-auto">
-                    <div className="flex items-center bg-slate-100 rounded-lg border border-border">
-                      <button aria-label="Diminuer la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => updateModuleQty(track.id, mod.id, item.qty - 1)}>−</button>
+                    <div className="flex items-center glass-sm rounded-lg">
+                      <button aria-label="Diminuer la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-white/10" onClick={() => updateModuleQty(track.id, mod.id, item.qty - 1)}>−</button>
                       <div className="w-8 text-center font-bold text-sm">{item.qty}</div>
-                      <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => updateModuleQty(track.id, mod.id, item.qty + 1)}>+</button>
+                      <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-white/10" onClick={() => updateModuleQty(track.id, mod.id, item.qty + 1)}>+</button>
                     </div>
                     <div className="text-right w-24">
                       <div className="font-bold text-foreground text-lg">{formatPrice(mod.price * item.qty)}</div>

@@ -13,9 +13,11 @@ export default function Wizard() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <TopBar />
-      <Hero />
-      <StepsBar />
+      <div className="print:hidden">
+        <TopBar />
+        <Hero />
+        <StepsBar />
+      </div>
       
       <main className="flex-1 bg-background relative">
         <AnimatePresence mode="wait">

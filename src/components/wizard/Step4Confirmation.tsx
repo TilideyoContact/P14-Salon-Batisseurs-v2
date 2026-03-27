@@ -174,7 +174,7 @@ export function Step4Confirmation() {
                     <span>{formatPrice(rawTotal)}</span>
                   </div>
                   {discounts.map((d, i) => (
-                    <div key={i} className="flex justify-between text-sm text-primary font-semibold">
+                    <div key={i} className="flex justify-between text-sm text-pink-300 font-semibold print:text-primary">
                       <span>{d.label}</span>
                       <span>-{formatPrice(d.amount)}</span>
                     </div>
