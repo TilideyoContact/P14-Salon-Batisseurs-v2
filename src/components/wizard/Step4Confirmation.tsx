@@ -27,57 +27,57 @@ export function Step4Confirmation() {
       className="max-w-2xl mx-auto py-10 px-4"
     >
       {/* Print-only header */}
-      <div className="hidden print:block text-center mb-8 border-b-2 border-navy pb-4">
-        <h1 className="text-2xl font-display text-navy">P14 Academy &mdash; Proposition commerciale</h1>
+      <div className="hidden print:block text-center mb-8 border-b-2 border-primary pb-4">
+        <h1 className="text-2xl font-display text-foreground">P14 Academy &mdash; Proposition commerciale</h1>
       </div>
 
       {/* Success card */}
-      <div className="bg-white rounded-3xl p-8 md:p-12 text-center shadow-xl shadow-turq/10 border-2 border-turq/20 print:shadow-none print:border print:border-border">
-        <div className="w-24 h-24 bg-gradient-to-br from-turq to-teal rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg shadow-turq/30 text-white print:shadow-none">
+      <div className="glass p-8 md:p-12 text-center print:shadow-none print:border print:border-border">
+        <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(0,201,167,0.3)] text-white print:shadow-none">
           <CheckCircle2 className="w-12 h-12" />
         </div>
 
-        <h2 className="text-3xl font-display text-navy mb-4">Pre-commande envoyee !</h2>
+        <h2 className="text-3xl font-display text-foreground mb-4">Pre-commande envoyee !</h2>
 
         <p className="text-muted-foreground mb-6 text-balance">
           Vous allez recevoir votre proposition commerciale detaillee et le catalogue P14 par email d&apos;ici quelques minutes.
         </p>
 
-        <div className="bg-slate-50 border border-border rounded-xl p-4 mb-8">
+        <div className="glass-sm p-4 mb-8">
           <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-1">Votre reference</div>
-          <div className="text-xl font-bold text-navy font-mono tracking-widest">{reference}</div>
+          <div className="text-xl font-bold text-foreground font-mono tracking-widest">{reference}</div>
         </div>
 
-        <p className="text-sm font-medium text-navy mb-8 print:hidden">
+        <p className="text-sm font-medium text-foreground mb-8 print:hidden">
           Notre equipe pedagogique vous contactera sous 24h pour finaliser votre inscription et votre dossier de financement.
         </p>
       </div>
 
       {/* ===== RECAP SECTION ===== */}
-      <div className="bg-white rounded-3xl border border-border shadow-sm mt-8 overflow-hidden print:shadow-none print:mt-4">
+      <div className="glass mt-8 overflow-hidden print:shadow-none print:mt-4">
 
         {/* Contact */}
-        <div className="p-5 bg-slate-50 border-b border-border">
-          <h3 className="font-bold text-navy flex items-center gap-2 text-sm uppercase tracking-wider">
-            <User className="w-4 h-4 text-turq" /> Contact
+        <div className="p-5 glass-sm border-b border-border">
+          <h3 className="font-bold text-foreground flex items-center gap-2 text-sm uppercase tracking-wider">
+            <User className="w-4 h-4 text-secondary" /> Contact
           </h3>
         </div>
         <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
           <div>
             <span className="text-muted-foreground">Nom</span>
-            <p className="font-semibold text-navy">{contact.prenom} {contact.nom}</p>
+            <p className="font-semibold text-foreground">{contact.prenom} {contact.nom}</p>
           </div>
           <div>
             <span className="text-muted-foreground">Email</span>
-            <p className="font-semibold text-navy">{contact.email}</p>
+            <p className="font-semibold text-foreground">{contact.email}</p>
           </div>
           <div>
             <span className="text-muted-foreground">Telephone</span>
-            <p className="font-semibold text-navy">{contact.tel || "Non renseigne"}</p>
+            <p className="font-semibold text-foreground">{contact.tel || "Non renseigne"}</p>
           </div>
           <div>
             <span className="text-muted-foreground">Situation</span>
-            <p className="font-semibold text-navy">
+            <p className="font-semibold text-foreground">
               {contact.situation ? SITUATION_LABELS[contact.situation] ?? contact.situation : "Non renseignee"}
               {contact.situation === "autre" && contact.autreSituation ? ` (${contact.autreSituation})` : ""}
             </p>
@@ -87,26 +87,26 @@ export function Step4Confirmation() {
         {/* Company (conditional) */}
         {(quote.entreprise || quote.entrepriseDetails) && (
           <>
-            <div className="p-5 bg-slate-50 border-y border-border">
-              <h3 className="font-bold text-navy flex items-center gap-2 text-sm uppercase tracking-wider">
-                <Building2 className="w-4 h-4 text-turq" /> Entreprise
+            <div className="p-5 glass-sm border-y border-border">
+              <h3 className="font-bold text-foreground flex items-center gap-2 text-sm uppercase tracking-wider">
+                <Building2 className="w-4 h-4 text-secondary" /> Entreprise
               </h3>
             </div>
             <div className="p-5 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-sm">
               <div>
                 <span className="text-muted-foreground">Raison sociale</span>
-                <p className="font-semibold text-navy">{quote.entrepriseDetails?.nom || quote.entreprise}</p>
+                <p className="font-semibold text-foreground">{quote.entrepriseDetails?.nom || quote.entreprise}</p>
               </div>
               {quote.entrepriseDetails?.siret && (
                 <div>
                   <span className="text-muted-foreground">SIRET</span>
-                  <p className="font-semibold text-navy font-mono">{quote.entrepriseDetails.siret}</p>
+                  <p className="font-semibold text-foreground font-mono">{quote.entrepriseDetails.siret}</p>
                 </div>
               )}
               {quote.entrepriseDetails?.adresse && (
                 <div className="sm:col-span-2">
                   <span className="text-muted-foreground">Adresse</span>
-                  <p className="font-semibold text-navy">{quote.entrepriseDetails.adresse}</p>
+                  <p className="font-semibold text-foreground">{quote.entrepriseDetails.adresse}</p>
                 </div>
               )}
             </div>
@@ -116,9 +116,9 @@ export function Step4Confirmation() {
         {/* Cart items */}
         {cartItems.length > 0 && (
           <>
-            <div className="p-5 bg-slate-50 border-y border-border">
-              <h3 className="font-bold text-navy flex items-center gap-2 text-sm uppercase tracking-wider">
-                <ShoppingCart className="w-4 h-4 text-turq" /> Selection ({cartItems.length} ligne{cartItems.length > 1 ? "s" : ""})
+            <div className="p-5 glass-sm border-y border-border">
+              <h3 className="font-bold text-foreground flex items-center gap-2 text-sm uppercase tracking-wider">
+                <ShoppingCart className="w-4 h-4 text-secondary" /> Selection ({cartItems.length} ligne{cartItems.length > 1 ? "s" : ""})
               </h3>
             </div>
             <div className="divide-y divide-border">
@@ -135,12 +135,12 @@ export function Step4Confirmation() {
                         >
                           Parcours Complet
                         </div>
-                        <h4 className="font-bold text-navy">{track.label}</h4>
+                        <h4 className="font-bold text-foreground">{track.label}</h4>
                         <p className="text-xs text-muted-foreground">{track.dur}</p>
                       </div>
                       <div className="text-right shrink-0">
                         <div className="text-xs text-muted-foreground">x{item.qty}</div>
-                        <div className="font-bold text-navy">{formatPrice(linePrice)}</div>
+                        <div className="font-bold text-foreground">{formatPrice(linePrice)}</div>
                       </div>
                     </div>
                   );
@@ -151,13 +151,13 @@ export function Step4Confirmation() {
                   return (
                     <div key={item.id} className="p-4 flex items-center justify-between gap-4">
                       <div className="flex-1 min-w-0">
-                        <div className="text-xs font-semibold text-turq mb-0.5">{track.label}</div>
-                        <h4 className="font-bold text-navy text-sm">{mod.title}</h4>
+                        <div className="text-xs font-semibold text-secondary mb-0.5">{track.label}</div>
+                        <h4 className="font-bold text-foreground text-sm">{mod.title}</h4>
                         <p className="text-xs text-muted-foreground">{mod.dur}</p>
                       </div>
                       <div className="text-right shrink-0">
                         <div className="text-xs text-muted-foreground">x{item.qty}</div>
-                        <div className="font-bold text-navy">{formatPrice(linePrice)}</div>
+                        <div className="font-bold text-foreground">{formatPrice(linePrice)}</div>
                       </div>
                     </div>
                   );
@@ -166,7 +166,7 @@ export function Step4Confirmation() {
             </div>
 
             {/* Totals */}
-            <div className="p-5 bg-navy text-white print:bg-slate-800">
+            <div className="p-5 bg-primary text-white print:bg-slate-800">
               {discounts.length > 0 && (
                 <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                   <div className="flex justify-between text-sm text-white/70">
@@ -174,7 +174,7 @@ export function Step4Confirmation() {
                     <span>{formatPrice(rawTotal)}</span>
                   </div>
                   {discounts.map((d, i) => (
-                    <div key={i} className="flex justify-between text-sm text-magenta font-semibold">
+                    <div key={i} className="flex justify-between text-sm text-primary font-semibold">
                       <span>{d.label}</span>
                       <span>-{formatPrice(d.amount)}</span>
                     </div>
@@ -184,7 +184,7 @@ export function Step4Confirmation() {
               <div className="flex justify-between items-end">
                 <div>
                   <div className="text-white/70 text-sm uppercase tracking-wider font-semibold mb-1">Total Estime</div>
-                  <div className="text-xs text-turq font-medium">Prix definitif sur devis officiel</div>
+                  <div className="text-xs text-secondary font-medium">Prix definitif sur devis officiel</div>
                 </div>
                 <div className="text-right">
                   {discounts.length > 0 && (
@@ -201,17 +201,17 @@ export function Step4Confirmation() {
         {quote.comment && (
           <div className="p-5 border-t border-border">
             <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-1">Commentaire</div>
-            <p className="text-sm text-navy">{quote.comment}</p>
+            <p className="text-sm text-foreground">{quote.comment}</p>
           </div>
         )}
       </div>
 
       {/* Buttons (hidden on print) */}
       <div className="mt-8 space-y-3 print:hidden">
-        <Button size="lg" className="w-full text-base" onClick={() => window.print()}>
+        <Button size="lg" className="btn-primary w-full text-base" onClick={() => window.print()}>
           <Printer className="w-5 h-5 mr-2" /> Imprimer le recapitulatif
         </Button>
-        <Button variant="secondary" size="lg" className="w-full" onClick={resetAll}>
+        <Button variant="secondary" size="lg" className="glass-sm text-foreground w-full" onClick={resetAll}>
           <RotateCcw className="w-4 h-4 mr-2" /> Nouvelle simulation
         </Button>
       </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Clock } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function TopBar() {
   const [timeLeft, setTimeLeft] = useState("--:--:--");
@@ -36,13 +37,18 @@ export function TopBar() {
   }, []);
 
   return (
-    <div className="bg-magenta text-white py-2.5 px-4 text-center text-xs md:text-sm font-medium print:hidden shadow-md relative z-50">
-      <span className="opacity-90">Salon des Bâtisseurs 2026 —</span>{" "}
-      <span className="font-bold">Jusqu'à -35% sur les parcours complets</span>{" "}
-      <span className="opacity-90 inline-flex items-center gap-1.5 ml-2 bg-black/20 px-2.5 py-0.5 rounded-full">
-        <Clock className="w-3.5 h-3.5" />
-        {expired ? <b>Offre expirée</b> : <>Fin dans <b>{timeLeft}</b></>}
-      </span>
+    <div className="glass-sm py-2.5 px-4 flex items-center justify-between text-xs md:text-sm font-medium print:hidden relative z-50">
+      <img src="/logo-p14.jpg" alt="P14" className="h-7" />
+
+      <div className="flex items-center gap-2 text-center">
+        <span className="text-foreground">Salon des Bâtisseurs 2026</span>
+        <span className="inline-flex items-center gap-1.5 bg-primary/20 text-primary px-2.5 py-0.5 rounded-full">
+          <Clock className="w-3.5 h-3.5" />
+          {expired ? <b>Offre expirée</b> : <>Fin dans <b>{timeLeft}</b></>}
+        </span>
+      </div>
+
+      <ThemeToggle />
     </div>
   );
 }

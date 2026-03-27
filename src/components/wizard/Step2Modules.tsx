@@ -52,30 +52,30 @@ export function Step2Modules() {
       initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
       className="max-w-5xl mx-auto py-8 px-4 pb-40"
     >
-      <div className="bg-gradient-to-r from-magenta/10 to-turq/10 border border-magenta/20 rounded-2xl p-4 mb-8">
+      <div className="glass p-4 mb-8">
         <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
           <div className="flex items-center gap-3 flex-1">
-            <div className="w-10 h-10 bg-magenta text-white rounded-full flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center shrink-0">
               <Zap className="w-5 h-5" />
             </div>
-            <p className="text-sm font-bold text-navy">
-              Jusqu'à <span className="text-magenta">-35%</span> sur les parcours complets — offre salon
+            <p className="text-sm font-bold text-foreground">
+              Jusqu'à <span className="text-primary">-35%</span> sur les parcours complets — offre salon
             </p>
           </div>
           <div className="hidden sm:block w-px h-8 bg-border" />
           <div className="flex items-center gap-3 flex-1">
-            <div className="w-10 h-10 bg-turq text-white rounded-full flex items-center justify-center shrink-0">
+            <div className="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center shrink-0">
               <BadgeEuro className="w-5 h-5" />
             </div>
-            <p className="text-sm font-bold text-navy">
-              Financement <span className="text-turq">CPF · OPCO · France Travail</span> — accompagnement inclus
+            <p className="text-sm font-bold text-foreground">
+              Financement <span className="text-secondary">CPF · OPCO · France Travail</span> — accompagnement inclus
             </p>
           </div>
         </div>
       </div>
 
       <div className="mb-8">
-        <h2 className="text-3xl font-display text-navy mb-2">
+        <h2 className="text-3xl font-display text-foreground mb-2">
           {contact.prenom ? `${contact.prenom}, composez` : 'Composez'} votre formation
         </h2>
         <p className="text-muted-foreground">Ajoutez un parcours complet ou choisissez vos modules à la carte.</p>
@@ -90,7 +90,7 @@ export function Step2Modules() {
           return (
             <TabButton key={t.id} active={filter === t.id} onClick={() => setFilter(t.id)}>
               {t.label}
-              {count > 0 && <span className="ml-2 bg-magenta text-white text-[10px] px-2 py-0.5 rounded-full">{count}</span>}
+              {count > 0 && <span className="ml-2 bg-primary text-white text-[10px] px-2 py-0.5 rounded-full">{count}</span>}
             </TabButton>
           );
         })}
@@ -130,14 +130,14 @@ export function Step2Modules() {
       </div>
 
       {/* Sticky Footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-border shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-50 p-4 md:p-6 print:hidden">
+      <div className="fixed bottom-0 left-0 right-0 glass border-t-0 rounded-none shadow-[0_-10px_40px_rgba(0,0,0,0.05)] z-50 p-4 md:p-6 print:hidden">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-turq/10 text-turq rounded-full flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 glass-sm text-secondary rounded-full flex items-center justify-center shrink-0">
               <ShoppingCart className="w-6 h-6" />
             </div>
             <div>
-              <div className="font-bold text-navy text-sm md:text-base">
+              <div className="font-bold text-foreground text-sm md:text-base">
                 {totalItems === 0 ? "Panier vide" : `${totalItems} élément${totalItems > 1 ? 's' : ''} sélectionné${totalItems > 1 ? 's' : ''}`}
               </div>
               <div className="text-xs md:text-sm text-muted-foreground hidden sm:block">
@@ -148,7 +148,7 @@ export function Step2Modules() {
           <div className="flex items-center gap-4 md:gap-6">
             <div className="text-right hidden xs:block">
               <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Total estimé</div>
-              <div className="text-xl md:text-2xl font-bold text-navy leading-none">
+              <div className="text-xl md:text-2xl font-bold text-foreground leading-none">
                 {formatPrice(totalPrice)}
               </div>
             </div>
@@ -156,7 +156,7 @@ export function Step2Modules() {
               size="lg"
               disabled={totalItems === 0}
               onClick={() => setStep(3)}
-              className="px-4 md:px-8"
+              className="btn-primary px-4 md:px-8"
             >
               Voir mon devis →
             </Button>
@@ -174,8 +174,8 @@ function TabButton({ children, active, onClick }: { children: React.ReactNode, a
       className={cn(
         "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 border-2",
         active
-          ? "bg-navy border-navy text-white shadow-md"
-          : "bg-white border-border text-foreground hover:border-navy/30"
+          ? "bg-primary border-primary text-white shadow-md"
+          : "glass-sm border-transparent text-foreground hover:border-primary/30"
       )}
     >
       {children}
@@ -206,8 +206,8 @@ function TrackCard({ track, isOpen, onToggle }: { track: Track, isOpen: boolean,
 
   return (
     <div className={cn(
-      "bg-white rounded-3xl overflow-hidden border-2 transition-all duration-300 shadow-lg flex flex-col h-full",
-      isFullSelected ? "border-magenta shadow-magenta/10" : "border-border hover:shadow-xl"
+      "glass overflow-hidden border-2 transition-all duration-300 flex flex-col h-full",
+      isFullSelected ? "border-primary shadow-[0_0_20px_rgba(198,30,90,0.15)]" : "border-transparent hover:shadow-xl"
     )}>
       {/* Top Color Stripe */}
       <div className="h-3 w-full" style={{ backgroundColor: track.color }} />
@@ -226,27 +226,27 @@ function TrackCard({ track, isOpen, onToggle }: { track: Track, isOpen: boolean,
         </div>
 
         {/* Pricing Area */}
-        <div className="bg-slate-50 rounded-2xl p-5 mb-5 border border-border/50">
+        <div className="glass-sm rounded-2xl p-5 mb-5">
           {(isFullSelected || !isAlaCarte) ? (
             <>
               <div className="text-sm text-muted-foreground line-through font-medium mb-1">
                 {formatPrice(displayOld)} séparés
               </div>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-3xl font-display text-navy">{displayPrice.toLocaleString('fr')} €</span>
-                <span className="text-sm font-bold text-navy">HT</span>
+                <span className="text-3xl font-display text-foreground">{displayPrice.toLocaleString('fr')} €</span>
+                <span className="text-sm font-bold text-foreground">HT</span>
               </div>
-              <div className="inline-block bg-magenta/10 text-magenta text-xs font-bold px-2.5 py-1 rounded-md">
+              <div className="inline-block bg-primary/10 text-primary text-xs font-bold px-2.5 py-1 rounded-md">
                 -{pct}% aujourd'hui
               </div>
             </>
           ) : (
             <>
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-3xl font-display text-navy">{indTotal.toLocaleString('fr')} €</span>
-                <span className="text-sm font-bold text-navy">HT</span>
+                <span className="text-3xl font-display text-foreground">{indTotal.toLocaleString('fr')} €</span>
+                <span className="text-sm font-bold text-foreground">HT</span>
               </div>
-              <div className="text-sm text-turq font-semibold">
+              <div className="text-sm text-secondary font-semibold">
                 {indCount} module{indCount > 1 ? 's' : ''} à la carte
               </div>
             </>
@@ -255,19 +255,19 @@ function TrackCard({ track, isOpen, onToggle }: { track: Track, isOpen: boolean,
           {/* Stepper for Full Track (only show if not a la carte) */}
           {!isAlaCarte && (
             <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">
-              <span className="text-sm font-semibold text-navy">Parcours complet</span>
-              <div className="flex items-center bg-white border border-border rounded-xl overflow-hidden shadow-sm">
+              <span className="text-sm font-semibold text-foreground">Parcours complet</span>
+              <div className="flex items-center glass-sm rounded-xl overflow-hidden">
                 <button
                   aria-label="Diminuer la quantité"
-                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-slate-100 transition-colors"
+                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-white/10 transition-colors"
                   onClick={() => addFullTrack(track.id, Math.max(0, fullQty - 1))}
                 >−</button>
-                <div className={cn("w-10 h-10 flex items-center justify-center font-bold text-lg", fullQty > 0 ? "bg-navy text-white" : "")}>
+                <div className={cn("w-10 h-10 flex items-center justify-center font-bold text-lg", fullQty > 0 ? "bg-primary text-white" : "")}>
                   {fullQty}
                 </div>
                 <button
                   aria-label="Augmenter la quantité"
-                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-slate-100 transition-colors"
+                  className="w-10 h-10 flex items-center justify-center text-lg hover:bg-white/10 transition-colors"
                   onClick={() => addFullTrack(track.id, fullQty + 1)}
                 >+</button>
               </div>
@@ -281,12 +281,12 @@ function TrackCard({ track, isOpen, onToggle }: { track: Track, isOpen: boolean,
           className={cn(
             "w-full flex items-center justify-between py-3 px-4 border rounded-xl font-semibold text-sm transition-colors mt-auto",
             isOpen
-              ? "bg-slate-100 border-slate-300 text-navy"
-              : "bg-white border-border hover:bg-slate-50"
+              ? "glass-sm border-primary/30 text-foreground"
+              : "glass-sm border-transparent text-foreground hover:border-primary/30"
           )}
         >
           <span className="flex items-center gap-2">
-            {isAlaCarte ? <span className="text-turq">✏️ Modifier sélection</span> : "📋 Voir les modules"}
+            {isAlaCarte ? <span className="text-secondary">✏️ Modifier sélection</span> : "📋 Voir les modules"}
           </span>
           <ChevronDown className={cn("w-5 h-5 transition-transform duration-300", isOpen && "rotate-180")} />
         </button>
@@ -302,7 +302,7 @@ function ModulesPanel({ track }: { track: Track }) {
   const isFullSelected = !!cart[fullId];
 
   return (
-    <div className="bg-white rounded-2xl border-2 border-border shadow-lg overflow-hidden">
+    <div className="glass overflow-hidden">
       {/* Colored top border */}
       <div className="h-2 w-full" style={{ backgroundColor: track.color }} />
 
@@ -316,7 +316,7 @@ function ModulesPanel({ track }: { track: Track }) {
             >
               {track.label}
             </div>
-            <h3 className="text-lg font-bold text-navy">
+            <h3 className="text-lg font-bold text-foreground">
               Modules du parcours ({track.modules.length})
             </h3>
           </div>
@@ -324,7 +324,7 @@ function ModulesPanel({ track }: { track: Track }) {
           {!isFullSelected && (
             <button
               onClick={() => toggleAllModules(track.id)}
-              className="text-xs font-bold text-navy hover:text-turq uppercase tracking-wider flex items-center gap-1.5 transition-colors"
+              className="text-xs font-bold text-foreground hover:text-secondary uppercase tracking-wider flex items-center gap-1.5 transition-colors"
             >
               {track.modules.every(m => cart[m.id]?.qty > 0) ? (
                 <><CheckSquare className="w-4 h-4"/> Tout décocher</>
@@ -360,14 +360,14 @@ function ModuleItem({ trackId, module, disabled }: { trackId: string, module: Mo
 
   return (
     <div className={cn(
-      "bg-white rounded-xl border p-3 transition-all duration-200",
-      inCart ? "border-turq shadow-[0_0_0_1px_rgba(0,177,178,0.2)]" : "border-border",
+      "glass-sm rounded-xl p-3 transition-all duration-200",
+      inCart ? "border-secondary shadow-[0_0_0_1px_rgba(0,201,167,0.2)]" : "border-transparent",
       disabled ? "opacity-60 cursor-not-allowed grayscale" : ""
     )}>
       <div className="flex items-start gap-3 cursor-pointer" onClick={toggle}>
         <div className="pt-1 shrink-0">
           {inCart ? (
-            <div className="w-5 h-5 rounded bg-turq text-white flex items-center justify-center">
+            <div className="w-5 h-5 rounded bg-secondary text-white flex items-center justify-center">
               <CheckSquare className="w-4 h-4" />
             </div>
           ) : (
@@ -376,8 +376,8 @@ function ModuleItem({ trackId, module, disabled }: { trackId: string, module: Mo
         </div>
         <div className="flex-1 min-w-0">
           <div className="flex justify-between items-start gap-2 mb-1">
-            <h4 className="font-bold text-sm text-navy leading-tight">{module.title}</h4>
-            <div className="font-bold text-sm text-navy whitespace-nowrap">{formatPrice(qty > 1 ? module.price * qty : module.price)}</div>
+            <h4 className="font-bold text-sm text-foreground leading-tight">{module.title}</h4>
+            <div className="font-bold text-sm text-foreground whitespace-nowrap">{formatPrice(qty > 1 ? module.price * qty : module.price)}</div>
           </div>
           <div className="text-xs text-muted-foreground font-medium">{module.dur}</div>
         </div>
@@ -387,14 +387,14 @@ function ModuleItem({ trackId, module, disabled }: { trackId: string, module: Mo
         <div className="mt-3 pt-3 border-t border-border flex items-center justify-between pl-8">
           <button
             onClick={(e) => { e.stopPropagation(); setExpanded(!expanded); }}
-            className="text-xs text-turq font-semibold hover:underline"
+            className="text-xs text-secondary font-semibold hover:underline"
           >
             {expanded ? "Cacher détails" : "Voir programme"}
           </button>
-          <div className="flex items-center bg-slate-50 border border-border rounded-lg overflow-hidden h-8">
-            <button aria-label="Diminuer la quantité" className="w-8 flex items-center justify-center hover:bg-slate-200" onClick={(e) => { e.stopPropagation(); updateModuleQty(trackId, module.id, qty - 1); }}>−</button>
-            <div className="w-8 flex items-center justify-center font-bold text-xs bg-white">{qty}</div>
-            <button aria-label="Augmenter la quantité" className="w-8 flex items-center justify-center hover:bg-slate-200" onClick={(e) => { e.stopPropagation(); updateModuleQty(trackId, module.id, qty + 1); }}>+</button>
+          <div className="flex items-center glass-sm rounded-lg overflow-hidden h-8">
+            <button aria-label="Diminuer la quantité" className="w-8 flex items-center justify-center hover:bg-white/10" onClick={(e) => { e.stopPropagation(); updateModuleQty(trackId, module.id, qty - 1); }}>−</button>
+            <div className="w-8 flex items-center justify-center font-bold text-xs">{qty}</div>
+            <button aria-label="Augmenter la quantité" className="w-8 flex items-center justify-center hover:bg-white/10" onClick={(e) => { e.stopPropagation(); updateModuleQty(trackId, module.id, qty + 1); }}>+</button>
           </div>
         </div>
       )}
@@ -402,14 +402,14 @@ function ModuleItem({ trackId, module, disabled }: { trackId: string, module: Mo
       {expanded && inCart && !disabled && (
         <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} className="mt-3 pl-8 text-xs text-muted-foreground space-y-2">
           <div>
-            <strong className="text-navy">Objectifs :</strong>
+            <strong className="text-foreground">Objectifs :</strong>
             <ul className="list-disc pl-4 mt-1 space-y-0.5">
               {module.obj.map((o, i) => <li key={i}>{o}</li>)}
             </ul>
           </div>
           {module.tools.length > 0 && (
             <div>
-              <strong className="text-navy">Outils :</strong> {module.tools.join(", ")}
+              <strong className="text-foreground">Outils :</strong> {module.tools.join(", ")}
             </div>
           )}
         </motion.div>

@@ -1,67 +1,114 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 @import "tailwindcss";
 
 @theme inline {
   --font-sans: 'DM Sans', sans-serif;
-  --font-display: 'Archivo Black', sans-serif;
+  --font-display: 'Montserrat', sans-serif;
 
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
-  
+
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
-  
+
   --color-secondary: hsl(var(--secondary));
   --color-secondary-foreground: hsl(var(--secondary-foreground));
-  
+
   --color-muted: hsl(var(--muted));
   --color-muted-foreground: hsl(var(--muted-foreground));
-  
+
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
-  
+
   --color-border: hsl(var(--border));
   --color-ring: hsl(var(--ring));
+  --color-input: hsl(var(--input));
+  --color-destructive: hsl(var(--destructive));
 
   --color-navy: hsl(var(--navy));
   --color-turq: hsl(var(--turq));
   --color-teal: hsl(var(--teal));
   --color-magenta: hsl(var(--magenta));
   --color-violet: hsl(var(--violet));
+  --color-emerald: hsl(var(--emerald));
 }
 
+/* ===== DARK MODE (default) ===== */
 :root {
-  --background: 45 14% 96%; /* #f7f6f3 */
-  --foreground: 208 57% 18%; /* navy #14314a */
+  --background: 218 60% 10%; /* #0B1D3A deep ocean */
+  --foreground: 0 0% 100%;
 
-  --card: 0 0% 100%;
-  --card-foreground: 208 57% 18%;
+  --card: 218 40% 14%; /* slightly lighter than bg */
+  --card-foreground: 0 0% 100%;
 
-  --primary: 339 74% 45%; /* magenta #c61e5a */
+  --primary: 339 74% 45%; /* #c61e5a magenta P14 */
   --primary-foreground: 0 0% 100%;
 
-  --secondary: 188 87% 30%; /* teal #0a7d8f */
+  --secondary: 168 100% 39%; /* #00C9A7 emerald */
   --secondary-foreground: 0 0% 100%;
 
-  --muted: 45 10% 90%;
-  --muted-foreground: 208 20% 50%;
+  --muted: 218 30% 18%;
+  --muted-foreground: 210 15% 60%;
 
-  --border: 208 20% 85%;
+  --border: 0 0% 100% / 0.12;
+  --input: 0 0% 100% / 0.06;
   --ring: 339 74% 45%;
+  --destructive: 0 84% 60%;
 
-  /* Brand Colors */
-  --navy: 208 57% 18%;
+  /* Brand */
+  --navy: 218 60% 10%;
   --turq: 180 100% 35%;
   --teal: 188 87% 30%;
   --magenta: 339 74% 45%;
   --violet: 288 52% 37%;
+  --emerald: 168 100% 39%;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  --glass-hover: rgba(255, 255, 255, 0.10);
+}
+
+/* ===== LIGHT MODE ===== */
+.light {
+  --background: 220 20% 98%; /* #FAFBFD */
+  --foreground: 218 60% 10%; /* navy */
+
+  --card: 0 0% 100% / 0.75;
+  --card-foreground: 218 60% 10%;
+
+  --primary: 339 74% 45%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 168 100% 39%;
+  --secondary-foreground: 0 0% 100%;
+
+  --muted: 220 15% 92%;
+  --muted-foreground: 215 16% 47%;
+
+  --border: 0 0% 0% / 0.08;
+  --input: 220 15% 96%;
+  --ring: 339 74% 45%;
+  --destructive: 0 84% 60%;
+
+  --navy: 218 60% 10%;
+  --turq: 180 100% 35%;
+  --teal: 188 87% 30%;
+  --magenta: 339 74% 45%;
+  --violet: 288 52% 37%;
+  --emerald: 168 100% 39%;
+
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(0, 0, 0, 0.06);
+  --glass-hover: rgba(255, 255, 255, 0.85);
 }
 
 @layer base {
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     @apply font-display tracking-tight;
   }
@@ -71,6 +118,98 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+  }
+
+  .glass-sm {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+  }
+
+  .glass-input {
+    background: var(--input);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    color: hsl(var(--foreground));
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .glass-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.15);
+    outline: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #c61e5a, #e91e7a);
+    color: white;
+    border-radius: 100px;
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(198, 30, 90, 0.3);
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 30px rgba(198, 30, 90, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* Background blobs */
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  pointer-events: none;
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+body::before {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  right: -200px;
+  background: hsl(var(--magenta) / 0.12);
+}
+
+body::after {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  left: -150px;
+  background: hsl(var(--emerald) / 0.10);
+}
+
+.light body::before {
+  background: hsl(var(--magenta) / 0.05);
+}
+
+.light body::after {
+  background: hsl(var(--emerald) / 0.04);
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(30px, 20px); }
 }
 
 /* Custom Scrollbar */
@@ -82,9 +221,9 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(var(--border));
+  background: hsl(var(--muted-foreground) / 0.3);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--muted-foreground));
+  background: hsl(var(--muted-foreground) / 0.5);
 }

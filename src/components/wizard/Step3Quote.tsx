@@ -45,13 +45,13 @@ export function Step3Quote() {
       className="max-w-3xl mx-auto py-8 px-4"
     >
       <div className="mb-8">
-        <h2 className="text-3xl font-display text-navy mb-2">Votre devis estimatif</h2>
+        <h2 className="text-3xl font-display text-foreground mb-2">Votre devis estimatif</h2>
         <p className="text-muted-foreground">Vérifiez vos choix et renseignez vos coordonnées pour recevoir la proposition officielle.</p>
       </div>
 
       {/* Cart Items */}
-      <div className="bg-white rounded-3xl border border-border shadow-sm overflow-hidden mb-8">
-        <div className="p-6 bg-slate-50 border-b border-border font-bold text-navy flex justify-between items-center">
+      <div className="glass overflow-hidden mb-8">
+        <div className="p-6 glass-sm font-bold text-foreground flex justify-between items-center">
           <span>Détail de la sélection</span>
           <span className="text-sm font-normal text-muted-foreground">{cartItems.length} ligne(s)</span>
         </div>
@@ -65,7 +65,7 @@ export function Step3Quote() {
                     <div className="inline-block px-2 py-0.5 rounded text-[10px] font-bold text-white uppercase mb-1" style={{ backgroundColor: track.color }}>
                       Parcours Complet
                     </div>
-                    <h4 className="font-bold text-navy text-lg">{track.label}</h4>
+                    <h4 className="font-bold text-foreground text-lg">{track.label}</h4>
                     <p className="text-sm text-muted-foreground">{track.dur}</p>
                   </div>
                   <div className="flex items-center gap-6 justify-between md:justify-end w-full md:w-auto">
@@ -75,7 +75,7 @@ export function Step3Quote() {
                       <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => addFullTrack(track.id, item.qty + 1)}>+</button>
                     </div>
                     <div className="text-right w-24">
-                      <div className="font-bold text-navy text-lg">{formatPrice(Math.round(track.price * 0.95) * item.qty)}</div>
+                      <div className="font-bold text-foreground text-lg">{formatPrice(Math.round(track.price * 0.95) * item.qty)}</div>
                     </div>
                     <button onClick={() => addFullTrack(track.id, 0)} className="text-muted-foreground hover:text-destructive p-2">
                       <Trash2 className="w-4 h-4" />
@@ -88,8 +88,8 @@ export function Step3Quote() {
               return (
                 <div key={item.id} className="p-4 md:p-6 flex flex-col md:flex-row md:items-center gap-4">
                   <div className="flex-1">
-                    <div className="text-xs font-semibold text-turq mb-1">{track.label}</div>
-                    <h4 className="font-bold text-navy">{mod.title}</h4>
+                    <div className="text-xs font-semibold text-secondary mb-1">{track.label}</div>
+                    <h4 className="font-bold text-foreground">{mod.title}</h4>
                     <p className="text-sm text-muted-foreground">{mod.dur}</p>
                   </div>
                   <div className="flex items-center gap-6 justify-between md:justify-end w-full md:w-auto">
@@ -99,7 +99,7 @@ export function Step3Quote() {
                       <button aria-label="Augmenter la quantité" className="w-8 h-8 flex items-center justify-center hover:bg-slate-200" onClick={() => updateModuleQty(track.id, mod.id, item.qty + 1)}>+</button>
                     </div>
                     <div className="text-right w-24">
-                      <div className="font-bold text-navy text-lg">{formatPrice(mod.price * item.qty)}</div>
+                      <div className="font-bold text-foreground text-lg">{formatPrice(mod.price * item.qty)}</div>
                     </div>
                     <button onClick={() => updateModuleQty(track.id, mod.id, 0)} className="text-muted-foreground hover:text-destructive p-2">
                       <Trash2 className="w-4 h-4" />
@@ -120,7 +120,7 @@ export function Step3Quote() {
 
         {/* Totals */}
         {cartItems.length > 0 && (
-          <div className="p-6 bg-navy text-white">
+          <div className="p-6 bg-primary text-white">
             {discounts.length > 0 && (
               <div className="mb-4 pb-4 border-b border-white/20 space-y-2">
                 <div className="flex justify-between text-sm text-white/70">
@@ -128,7 +128,7 @@ export function Step3Quote() {
                   <span>{formatPrice(rawTotal)}</span>
                 </div>
                 {discounts.map((d, i) => (
-                  <div key={i} className="flex justify-between text-sm text-magenta font-semibold">
+                  <div key={i} className="flex justify-between text-sm text-primary font-semibold">
                     <span>{d.label}</span>
                     <span>-{formatPrice(d.amount)}</span>
                   </div>
@@ -138,7 +138,7 @@ export function Step3Quote() {
             <div className="flex justify-between items-end">
               <div>
                 <div className="text-white/70 text-sm uppercase tracking-wider font-semibold mb-1">Total Estimé</div>
-                <div className="text-xs text-turq font-medium">Prix définitif sur devis officiel</div>
+                <div className="text-xs text-secondary font-medium">Prix définitif sur devis officiel</div>
               </div>
               <div className="text-right">
                 {discounts.length > 0 && <div className="text-sm line-through text-white/50">{formatPrice(rawTotal)}</div>}
@@ -150,14 +150,14 @@ export function Step3Quote() {
       </div>
 
       {/* Form */}
-      <div className="bg-white rounded-3xl p-6 md:p-8 border border-border shadow-lg shadow-black/5 relative z-10">
-        <h3 className="font-bold text-navy text-lg mb-6 flex items-center gap-2">
-          <Building2 className="w-5 h-5 text-turq" />
+      <div className="glass p-6 md:p-8 relative z-10">
+        <h3 className="font-bold text-foreground text-lg mb-6 flex items-center gap-2">
+          <Building2 className="w-5 h-5 text-secondary" />
           Informations complémentaires
         </h3>
 
         <div className="mb-5 relative">
-          <label className="block text-sm font-bold text-navy mb-1.5">Entreprise / Agence</label>
+          <label className="block text-sm font-bold text-foreground mb-1.5">Entreprise / Agence</label>
           <div className="relative">
             <Search className="w-5 h-5 text-muted-foreground absolute left-3.5 top-1/2 -translate-y-1/2" />
             <Input 
@@ -172,7 +172,7 @@ export function Step3Quote() {
 
           {/* Autocomplete Dropdown */}
           {showResults && searchQuery.length >= 3 && (
-            <div className="absolute top-full left-0 right-0 mt-1 bg-white border border-turq rounded-xl shadow-xl z-50 max-h-60 overflow-y-auto">
+            <div className="absolute top-full left-0 right-0 mt-1 glass rounded-xl z-50 max-h-60 overflow-y-auto">
               {isLoading ? (
                 <div className="p-4 text-sm text-center text-muted-foreground">Recherche en cours...</div>
               ) : results.length > 0 ? (
@@ -180,10 +180,10 @@ export function Step3Quote() {
                   {results.map((r, i) => (
                     <li 
                       key={i} 
-                      className="px-4 py-2 hover:bg-turq/5 cursor-pointer border-b border-border/50 last:border-0"
+                      className="px-4 py-2 hover:bg-secondary/5 cursor-pointer border-b border-border/50 last:border-0"
                       onClick={() => handleCompanySelect(r)}
                     >
-                      <div className="font-bold text-sm text-navy">{r.nom_complet}</div>
+                      <div className="font-bold text-sm text-foreground">{r.nom_complet}</div>
                       <div className="text-xs text-muted-foreground mt-0.5">
                         {[r.siege.libelle_voie, r.siege.code_postal, r.siege.libelle_commune].filter(Boolean).join(' ')} 
                         {r.siege.siret && ` · SIRET: ${r.siege.siret}`}
@@ -198,18 +198,18 @@ export function Step3Quote() {
           )}
 
           {quote.entrepriseDetails && (
-            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-3 p-3 bg-turq/10 rounded-lg border border-turq/20 text-sm">
-              <div className="font-bold text-turq flex items-center gap-1"><Check className="w-4 h-4"/> {quote.entrepriseDetails.nom}</div>
-              {quote.entrepriseDetails.adresse && <div className="text-navy mt-1">{quote.entrepriseDetails.adresse}</div>}
+            <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="mt-3 p-3 glass-sm text-sm">
+              <div className="font-bold text-secondary flex items-center gap-1"><Check className="w-4 h-4"/> {quote.entrepriseDetails.nom}</div>
+              {quote.entrepriseDetails.adresse && <div className="text-foreground mt-1">{quote.entrepriseDetails.adresse}</div>}
               {quote.entrepriseDetails.siret && <div className="text-muted-foreground text-xs mt-1">SIRET: {quote.entrepriseDetails.siret}</div>}
             </motion.div>
           )}
         </div>
 
         <div>
-          <label className="block text-sm font-bold text-navy mb-1.5">Commentaire (optionnel)</label>
+          <label className="block text-sm font-bold text-foreground mb-1.5">Commentaire (optionnel)</label>
           <textarea
-            className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            className="glass-input flex min-h-[80px] w-full px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
             placeholder="Précisions, dates souhaitées, besoins OPCO..."
             rows={3}
             value={quote.comment}
@@ -223,10 +223,10 @@ export function Step3Quote() {
               {submitError}
             </div>
           )}
-          <Button variant="secondary" onClick={() => setStep(2)} className="w-full sm:w-auto" disabled={isSubmitting}>← Modifier sélection</Button>
+          <Button variant="secondary" onClick={() => setStep(2)} className="glass-sm text-foreground w-full sm:w-auto" disabled={isSubmitting}>← Modifier sélection</Button>
           <Button
             size="lg"
-            className="w-full sm:flex-1 text-base"
+            className="btn-primary w-full sm:flex-1 text-base"
             disabled={!isFormValid || isSubmitting}
             onClick={submitOrder}
           >
