@@ -40,7 +40,7 @@ export function TopBar() {
     <div className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur-xl py-2.5 px-4 flex items-center justify-between text-xs md:text-sm font-medium print:hidden rounded-b-2xl">
       <img src="/logo-p14-fc.jpg" alt="P14 Formation Continue" className="h-8 rounded" />
 
-      <div className="flex items-center gap-1.5 sm:gap-2 text-center">
+      <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1.5 sm:gap-2 text-center">
         <span className="hidden sm:inline text-foreground">Salon des Bâtisseurs 2026</span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 bg-primary/20 text-primary px-2 sm:px-2.5 py-0.5 rounded-full text-[10px] sm:text-xs">
           <Clock className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
