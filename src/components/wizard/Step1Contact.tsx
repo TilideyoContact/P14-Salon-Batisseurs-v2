@@ -104,7 +104,7 @@ export function Step1Contact() {
                 <label 
                   key={s.value} 
                   className={`
-                    px-4 py-2 rounded-full text-sm font-medium border-2 cursor-pointer transition-all duration-200
+                    px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium border-2 cursor-pointer transition-all duration-200
                     ${contact.situation === s.value
                       ? "bg-primary border-primary text-white shadow-md"
                       : "glass-sm border-transparent text-foreground hover:border-primary/30"

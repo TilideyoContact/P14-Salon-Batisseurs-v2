@@ -75,7 +75,7 @@ export function Step2Modules() {
       </div>
 
       <div className="mb-8">
-        <h2 className="text-3xl font-display text-foreground mb-2">
+        <h2 className="text-2xl sm:text-3xl font-display text-foreground mb-2">
           {contact.prenom ? `${contact.prenom}, composez` : 'Composez'} votre formation
         </h2>
         <p className="text-muted-foreground">Ajoutez un parcours complet ou choisissez vos modules à la carte.</p>
@@ -130,11 +130,11 @@ export function Step2Modules() {
       </div>
 
       {/* Sticky Footer */}
-      <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-[0_-10px_40px_rgba(0,0,0,0.15)] z-50 p-4 md:p-6 print:hidden">
+      <div className="fixed bottom-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-t border-border shadow-[0_-10px_40px_rgba(0,0,0,0.15)] z-50 p-3 sm:p-4 md:p-6 print:hidden">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 glass-sm text-secondary rounded-full flex items-center justify-center shrink-0">
-              <ShoppingCart className="w-6 h-6" />
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 glass-sm text-secondary rounded-full flex items-center justify-center shrink-0">
+              <ShoppingCart className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
             <div>
               <div className="font-bold text-foreground text-sm md:text-base">
@@ -145,8 +145,8 @@ export function Step2Modules() {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-4 md:gap-6">
-            <div className="text-right hidden xs:block">
+          <div className="flex items-center gap-2 sm:gap-4 md:gap-6">
+            <div className="text-right hidden sm:block">
               <div className="text-xs text-muted-foreground font-semibold uppercase tracking-wider">Total estimé</div>
               <div className="text-xl md:text-2xl font-bold text-foreground leading-none">
                 {formatPrice(totalPrice)}
@@ -172,7 +172,7 @@ function TabButton({ children, active, onClick }: { children: React.ReactNode, a
     <button
       onClick={onClick}
       className={cn(
-        "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 border-2",
+        "px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 border-2",
         active
           ? "bg-primary border-primary text-white shadow-md"
           : "glass-sm border-transparent text-foreground hover:border-primary/30"
@@ -308,7 +308,7 @@ function ModulesPanel({ track }: { track: Track }) {
 
       <div className="p-6">
         {/* Header */}
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-0 mb-5">
           <div className="flex items-center gap-3">
             <div
               className="inline-block px-3 py-1 rounded-lg text-white text-xs font-bold uppercase tracking-wider"
@@ -316,7 +316,7 @@ function ModulesPanel({ track }: { track: Track }) {
             >
               {track.label}
             </div>
-            <h3 className="text-lg font-bold text-foreground">
+            <h3 className="text-base sm:text-lg font-bold text-foreground">
               Modules du parcours ({track.modules.length})
             </h3>
           </div>

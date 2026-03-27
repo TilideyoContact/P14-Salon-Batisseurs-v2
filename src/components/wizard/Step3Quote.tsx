@@ -45,7 +45,7 @@ export function Step3Quote() {
       className="max-w-3xl mx-auto py-8 px-4"
     >
       <div className="mb-8">
-        <h2 className="text-3xl font-display text-foreground mb-2">Votre devis estimatif</h2>
+        <h2 className="text-2xl sm:text-3xl font-display text-foreground mb-2">Votre devis estimatif</h2>
         <p className="text-muted-foreground">Vérifiez vos choix et renseignez vos coordonnées pour recevoir la proposition officielle.</p>
       </div>
 
@@ -142,7 +142,7 @@ export function Step3Quote() {
               </div>
               <div className="text-right">
                 {discounts.length > 0 && <div className="text-sm line-through text-white/50">{formatPrice(rawTotal)}</div>}
-                <div className="text-4xl font-display text-white">{formatPrice(finalTotal)}</div>
+                <div className="text-3xl sm:text-4xl font-display text-white">{formatPrice(finalTotal)}</div>
               </div>
             </div>
           </div>

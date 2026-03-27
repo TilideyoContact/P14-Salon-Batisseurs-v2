@@ -26,30 +26,40 @@ export function Step4Confirmation() {
       animate={{ opacity: 1, scale: 1 }}
       className="max-w-2xl mx-auto py-10 px-4"
     >
-      {/* Print-only header */}
-      <div className="hidden print:block text-center mb-8 border-b-2 border-primary pb-4">
-        <h1 className="text-2xl font-display text-foreground">P14 Academy &mdash; Proposition commerciale</h1>
+      {/* Print-only header — professional PDF layout */}
+      <div className="hidden print:block mb-6">
+        <div className="flex items-center justify-between border-b-2 border-[#c61e5a] pb-4 mb-4">
+          <div>
+            <img src="/logo-p14-fc.jpg" alt="P14" className="h-10 mb-1" />
+            <p className="text-[9pt] text-gray-500">Organisme certifié Qualiopi · NDA 97970203497</p>
+          </div>
+          <div className="text-right">
+            <h1 className="text-[14pt] font-bold text-[#0B1D3A]">Proposition commerciale</h1>
+            <p className="text-[10pt] text-gray-500">Salon des Bâtisseurs 2026</p>
+            <p className="text-[10pt] font-mono font-bold text-[#c61e5a] mt-1">{reference}</p>
+          </div>
+        </div>
       </div>
 
-      {/* Success card */}
-      <div className="glass p-8 md:p-12 text-center print:shadow-none print:border print:border-border">
-        <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(0,201,167,0.3)] text-white print:shadow-none">
+      {/* Success card — screen only hero */}
+      <div className="glass p-6 sm:p-8 md:p-12 text-center print:hidden">
+        <div className="w-24 h-24 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_rgba(0,201,167,0.3)] text-white">
           <CheckCircle2 className="w-12 h-12" />
         </div>
 
-        <h2 className="text-3xl font-display text-foreground mb-4">Pre-commande envoyee !</h2>
+        <h2 className="text-2xl sm:text-3xl font-display text-foreground mb-4">Pré-commande envoyée !</h2>
 
         <p className="text-muted-foreground mb-6 text-balance">
-          Vous allez recevoir votre proposition commerciale detaillee et le catalogue P14 par email d&apos;ici quelques minutes.
+          Vous allez recevoir votre proposition commerciale détaillée et le catalogue P14 par email d&apos;ici quelques minutes.
         </p>
 
         <div className="glass-sm p-4 mb-8">
-          <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-1">Votre reference</div>
+          <div className="text-xs text-muted-foreground uppercase tracking-wider font-semibold mb-1">Votre référence</div>
           <div className="text-xl font-bold text-foreground font-mono tracking-widest">{reference}</div>
         </div>
 
-        <p className="text-sm font-medium text-foreground mb-8 print:hidden">
-          Notre equipe pedagogique vous contactera sous 24h pour finaliser votre inscription et votre dossier de financement.
+        <p className="text-sm font-medium text-foreground mb-8">
+          Notre équipe pédagogique vous contactera sous 24h pour finaliser votre inscription et votre dossier de financement.
         </p>
       </div>
 
@@ -204,6 +214,22 @@ export function Step4Confirmation() {
             <p className="text-sm text-foreground">{quote.comment}</p>
           </div>
         )}
+      </div>
+
+      {/* Print-only footer */}
+      <div className="hidden print:block mt-8 pt-4 border-t border-gray-300 text-[9pt] text-gray-500">
+        <div className="flex justify-between">
+          <div>
+            <p className="font-bold text-[#0B1D3A]">Parallel 14 Academy</p>
+            <p>Centre d'affaires Californie, Le Lamentin · 0596 02 02 28</p>
+            <p>fc@parallel14.com · www.parallel14.com</p>
+          </div>
+          <div className="text-right">
+            <p>Ce document est un devis estimatif.</p>
+            <p>Le prix définitif sera communiqué sur devis officiel.</p>
+            <p className="font-bold text-[#c61e5a] mt-1">Certifié Qualiopi · NDA 97970203497</p>
+          </div>
+        </div>
       </div>
 
       {/* Buttons (hidden on print) */}

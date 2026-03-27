@@ -213,13 +213,23 @@ body::after {
   100% { transform: translate(30px, 20px); }
 }
 
-/* Print styles */
+/* Print styles — PDF A4 */
 @media print {
+  @page {
+    size: A4;
+    margin: 15mm 12mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
   body, html {
     background: white !important;
     color: #1a1a1a !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
+    font-size: 11pt !important;
+    line-height: 1.4 !important;
   }
 
   body::before,
@@ -227,25 +237,82 @@ body::after {
     display: none !important;
   }
 
-  .print\\:hidden {
+  .print\:hidden {
     display: none !important;
   }
 
-  .print\\:block {
+  .print\:block {
     display: block !important;
   }
 
+  /* Remove glass effects, clean borders */
   .glass, .glass-sm {
     background: white !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
-    border: 1px solid #e5e7eb !important;
+    border: 1px solid #d1d5db !important;
     box-shadow: none !important;
+    border-radius: 8px !important;
   }
 
-  .bg-primary {
-    background: #1a1a2e !important;
+  /* Totals block stays dark */
+  .bg-\[\\#0B1D3A\] {
+    background: #0B1D3A !important;
     color: white !important;
+    border-radius: 0 0 8px 8px !important;
+  }
+
+  /* Force text colors for print */
+  .text-foreground {
+    color: #1a1a1a !important;
+  }
+  .text-muted-foreground {
+    color: #6b7280 !important;
+  }
+  .text-primary {
+    color: #c61e5a !important;
+  }
+  .text-secondary {
+    color: #059669 !important;
+  }
+
+  /* Inputs hidden in print */
+  input, textarea, select, button {
+    display: none !important;
+  }
+
+  /* Keep text in recap visible */
+  .glass-sm p,
+  .glass-sm span,
+  .glass-sm div,
+  .glass p,
+  .glass span,
+  .glass div {
+    color: #1a1a1a !important;
+  }
+
+  /* White text areas stay white */
+  .bg-\[\\#0B1D3A\] p,
+  .bg-\[\\#0B1D3A\] span,
+  .bg-\[\\#0B1D3A\] div {
+    color: white !important;
+  }
+
+  /* No page breaks inside cards */
+  .glass, .glass-sm {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Ensure sections don't get cut */
+  h2, h3, h4 {
+    page-break-after: avoid !important;
+  }
+
+  /* Remove animations */
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }
 
